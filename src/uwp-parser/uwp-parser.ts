@@ -1,5 +1,5 @@
-import { uwpParametersReferenceData as uwpRef } from './uwp-parser/data';
-import type { UWPDetails } from './uwp-parser/types';
+import { uwpParametersReferenceData as uwpRef } from './data';
+import type { UWPDetails } from './types';
 
 /**
  * @function getUWPParameterDescription
@@ -16,15 +16,15 @@ function getUWPParameterDescription(
 }
 
 /**
- * @function parseUWPString
- * @description Parses a Universal World Profile (UWP) string into a structured object with descriptions.
- * @param {string} uwpString - The UWP string to parse (e.g., "A865AB7-C N A Ag In Hi (Some Remarks)").
- * @returns {UWPDetails | null} A UWPDetails object if parsing is successful, otherwise null.
+ * @function validateUWPString
+ * @description Validates a Universal World Profile (UWP) string against the expected format.
+ * @param {string} uwpString - The UWP string to validate (e.g., "A865AB7-C N A Ag In Hi (Some Remarks)").
+ * @returns {boolean} True if the UWP string is valid, otherwise false.
  */
-function parseUWPString(uwpString: string): UWPDetails | null {
+export function validateUWPString(uwpString: string): string | false {
   if (!uwpString || typeof uwpString !== 'string') {
     console.error('Invalid UWP string provided.');
-    return null;
+    return 'Invalid UWP string provided.';
   }
 
   const parts = uwpString.trim().split(' ');
@@ -32,8 +32,24 @@ function parseUWPString(uwpString: string): UWPDetails | null {
 
   if (coreUWP.length < 9 || coreUWP[7] !== '-') {
     console.error("UWP string format is incorrect. Expected format like 'A865AB7-C'.");
-    return null;
+    return "UWP string format is incorrect. Expected format like 'A865AB7-C'.";
   }
+
+  return false;
+}
+
+/**
+ * @function parseUWPString
+ * @description Parses a Universal World Profile (UWP) string into a structured object with descriptions.
+ * @param {string} uwpString - The UWP string to parse (e.g., "A865AB7-C N A Ag In Hi (Some Remarks)").
+ * @returns {UWPDetails | null} A UWPDetails object if parsing is successful, otherwise null.
+ */
+export function parseUWPString(uwpString: string): UWPDetails | null {
+  const isError = validateUWPString(uwpString);
+  if (isError) return null;
+
+  const parts = uwpString.trim().split(' ');
+  const coreUWP = parts[0];
 
   const starportCode = coreUWP[0];
   const sizeCode = coreUWP[1];
@@ -91,6 +107,8 @@ function parseUWPString(uwpString: string): UWPDetails | null {
       codeSegments.splice(i, 1); // Remove from array once processed
       continue;
     }
+
+    console.log(`Processing segment: ${segment}`);
 
     if (segment.length === 2 && isKnownTradeCode(segment)) {
       currentTradeCodes.unshift(getUWPParameterDescription(uwpRef.trade_codes, segment)); // Unshift to maintain order

@@ -32,13 +32,18 @@ function App() {
         <TextField isInvalid={!!uwpError}>
           <Label>UWP</Label>
           <Input
+            data-testid="uwp-input"
             value={uwpString}
             onBlur={() => validateUWP(uwpString)}
             onChange={(e) => setUwpString(e.target.value)}
           />
           <FieldError>{uwpError}</FieldError>
         </TextField>
-        <Button isDisabled={!uwpString || !!uwpError} onClick={() => parseUWP()}>
+        <Button
+          data-testid="parse-uwp-button"
+          isDisabled={!uwpString || !!uwpError}
+          onClick={() => parseUWP()}
+        >
           Parse UWP
         </Button>
 

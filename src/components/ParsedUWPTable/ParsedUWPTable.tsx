@@ -18,7 +18,7 @@ const ParsedUWPTable: React.FC<{ parsedUWP: UWPDetails | null }> = ({ parsedUWP 
   }, [] as { parameter: string; code: string; description: string }[]);
 
   return (
-    <Table className={s.table} aria-label="UWP Data">
+    <Table data-testid="parsed-uwp-table" className={s.table} aria-label="UWP Data">
       <TableHeader>
         <Column isRowHeader>Parameter</Column>
         <Column>Code</Column>

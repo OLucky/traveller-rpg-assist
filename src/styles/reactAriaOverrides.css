@@ -1,0 +1,46 @@
+*:focus {
+  outline: 1px solid var(--retro-green-neon);
+}
+
+.react-aria-TextField {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5em;
+}
+
+.react-aria-Input {
+  background: transparent;
+  border: 1px solid var(--retro-green-classic);
+  border-radius: 4px;
+  padding: 0 2px;
+
+  &:focus {
+    outline: 2px solid var(--retro-green-neon);
+    outline-offset: -2px;
+  }
+}
+
+.react-aria-TableBody,
+.react-aria-TableHeader {
+  text-align: left;
+
+  th,
+  td {
+    padding: 0.5rem;
+    border: 1px solid var(--retro-green-classic);
+  }
+}
+
+.react-aria-Button {
+  background: transparent;
+  border: 1px solid var(--retro-green-classic);
+
+  &:hover {
+    border-color: var(--retro-green-neon);
+  }
+
+  &:focus {
+    outline: 1px solid var(--retro-green-neon);
+  }
+}

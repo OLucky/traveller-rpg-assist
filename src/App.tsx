@@ -1,4 +1,4 @@
-import { TextField, Label, Input, Button, FieldError } from 'react-aria-components';
+import { TextField, Label, FieldError, Button, Input } from 'react-aria-components';
 import { useState } from 'react';
 import './App.css';
 import s from './App.module.css';
@@ -26,7 +26,7 @@ function App() {
   };
 
   return (
-    <>
+    <div className={s.appContainer}>
       <h1>Traveller RPG Assistant</h1>
       <div className={s.uwpContainer}>
         <TextField isInvalid={!!uwpError}>
@@ -49,7 +49,7 @@ function App() {
 
         <ParsedUWPTable parsedUWP={parsedUWP} />
       </div>
-    </>
+    </div>
   );
 }
 

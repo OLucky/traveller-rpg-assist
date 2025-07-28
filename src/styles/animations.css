@@ -1,0 +1,31 @@
+.typewriter-text {
+  overflow: hidden; /* Ensures text is not visible until animated */
+  white-space: nowrap; /* Keeps text on a single line */
+  border-right: 0.15em solid transparent; /* The blinking cursor */
+  width: min-content; /* Start with no width, text will be revealed */
+
+  /* Animation properties */
+  animation: typing 1s steps(40, end) forwards,
+    /* Typing animation */ blink-caret 0.75s step-end forwards; /* Blinking cursor animation */
+}
+
+/* Keyframes for the typing animation */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: calc-size(fit-content, size);
+  }
+}
+
+/* Keyframes for the blinking cursor animation */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: green;
+  } /* Change color to your retro green */
+}

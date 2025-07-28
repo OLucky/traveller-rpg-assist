@@ -1,7 +1,14 @@
 import React from 'react';
-import { Cell, Column, Row, Table, TableBody, TableHeader } from 'react-aria-components';
+import {
+  Cell,
+  Column,
+  ResizableTableContainer,
+  Row,
+  Table,
+  TableBody,
+  TableHeader,
+} from 'react-aria-components';
 import type { UWPDetails } from '../../uwp-parser/types';
-import s from './ParsedUWPTable.module.css';
 
 const ParsedUWPTable: React.FC<{ parsedUWP: UWPDetails | null }> = ({ parsedUWP }) => {
   if (!parsedUWP) return null;
@@ -18,22 +25,28 @@ const ParsedUWPTable: React.FC<{ parsedUWP: UWPDetails | null }> = ({ parsedUWP 
   }, [] as { parameter: string; code: string; description: string }[]);
 
   return (
-    <Table data-testid="parsed-uwp-table" className={s.table} aria-label="UWP Data">
-      <TableHeader>
-        <Column isRowHeader>Parameter</Column>
-        <Column>Code</Column>
-        <Column>Description</Column>
-      </TableHeader>
-      <TableBody>
-        {flatData.map(({ parameter, code, description }) => (
-          <Row key={`${parameter}-${code}`}>
-            <Cell>{parameter}</Cell>
-            <Cell>{code}</Cell>
-            <Cell>{description}</Cell>
-          </Row>
-        ))}
-      </TableBody>
-    </Table>
+    <ResizableTableContainer>
+      <Table data-testid="parsed-uwp-table" aria-label="UWP Data">
+        <TableHeader>
+          <Column isRowHeader width="2fr">
+            Parameter
+          </Column>
+          <Column width="1fr">Code</Column>
+          <Column width="10fr">Description</Column>
+        </TableHeader>
+        <TableBody>
+          {flatData.map(({ parameter, code, description }) => (
+            <Row key={`${parameter}-${code}`}>
+              <Cell>{parameter}</Cell>
+              <Cell style={{ textAlign: 'center' }}>{code}</Cell>
+              <Cell>
+                <p className="typewriter-text">{description}</p>
+              </Cell>
+            </Row>
+          ))}
+        </TableBody>
+      </Table>
+    </ResizableTableContainer>
   );
 };
 

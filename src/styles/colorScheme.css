@@ -1,0 +1,9 @@
+#root {
+  /* Retro Green Terminal Color Scheme */
+  --retro-green-dark: #003300;
+  --retro-green-classic: #006600;
+  --retro-green-vibrant: #009900;
+  --retro-green-neon: #00cc00;
+  --retro-green-light-phosphor: #33ff33;
+  --retro-green-subtle-phosphor: #00ff00;
+}

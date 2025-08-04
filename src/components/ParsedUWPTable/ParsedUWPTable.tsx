@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Cell,
-  Column,
-  ResizableTableContainer,
-  Row,
-  Table,
-  TableBody,
-  TableHeader,
-} from 'react-aria-components';
+import { Cell, Column, Row, Table, TableBody, TableHeader } from 'react-aria-components';
 import type { UWPDetails } from '../../uwp-parser/types';
 
 const ParsedUWPTable: React.FC<{ parsedUWP: UWPDetails | null }> = ({ parsedUWP }) => {

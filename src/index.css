@@ -1,27 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 @import 'tailwindcss';
 
+@import './styles/colorScheme.css';
+@import './styles/reactAriaOverrides.css';
+@import './styles/animations.css';
+
+/* Generic CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'VT323', monospace;
   font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-style: normal;
+  color: var(--retro-green-vibrant);
+  text-shadow: 0 0 5px var(--retro-green-classic);
+  background: rgb(0, 21, 0);
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+:root {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'VT323', monospace;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--retro-green-vibrant);
+  text-shadow: 0 0 5px var(--retro-green-classic);
+
+  line-height: 1.5;
 }
 
 body {
@@ -47,24 +74,4 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
 }

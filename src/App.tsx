@@ -1,6 +1,5 @@
 import { TextField, Label, FieldError, Button, Input } from 'react-aria-components';
 import { useState } from 'react';
-import './App.css';
 import s from './App.module.css';
 import './uwp-parser/uwp-parser.ts';
 import { parseUWPString, validateUWPString } from './uwp-parser/uwp-parser.ts';

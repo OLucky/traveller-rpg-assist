@@ -22,9 +22,9 @@ function getUWPParameterDescription(
  * @returns {boolean} True if the UWP string is valid, otherwise false.
  */
 export function validateUWPString(uwpString: string): string | false {
-  if (!uwpString || typeof uwpString !== 'string') {
-    console.error('Invalid UWP string provided.');
-    return 'Invalid UWP string provided.';
+  if (typeof uwpString !== 'string') {
+    console.error("UWP string format is incorrect. Expected format like 'A865AB7-C'.");
+    return "UWP string format is incorrect. Expected format like 'A865AB7-C'.";
   }
 
   const parts = uwpString.trim().split(' ');

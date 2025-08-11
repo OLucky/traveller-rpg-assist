@@ -1,11 +1,13 @@
-import { TextField, Label, FieldError, Button, Input } from 'react-aria-components';
-import { useState } from 'react';
 import './App.css';
-import s from './App.module.css';
 import './uwp-parser/uwp-parser.ts';
-import { parseUWPString, validateUWPString } from './uwp-parser/uwp-parser.ts';
+
+import { useState } from 'react';
+import { Button, FieldError, Input, Label, TextField } from 'react-aria-components';
+
+import s from './App.module.css';
 import ParsedUWPTable from './components/ParsedUWPTable/ParsedUWPTable.tsx';
 import type { UWPDetails } from './uwp-parser/types.ts';
+import { parseUWPString, validateUWPString } from './uwp-parser/uwp-parser.ts';
 
 function App() {
   const [uwpString, setUwpString] = useState('');

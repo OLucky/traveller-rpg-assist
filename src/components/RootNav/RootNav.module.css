@@ -1,0 +1,11 @@
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navBtn {
+  width: 160px;
+  font-size: 24px;
+  text-transform: uppercase;
+}

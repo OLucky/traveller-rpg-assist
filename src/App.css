@@ -2,6 +2,7 @@
 
 @import './styles/colorScheme.css';
 @import './styles/reactAriaOverrides.css';
+@import './styles/tanstackRouterOverrides.css';
 @import './styles/animations.css';
 
 /* Generic CSS Reset */

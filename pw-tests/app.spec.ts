@@ -1,7 +1,9 @@
-import { test, expect } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
-test('should input text into uwp-input on home page', async ({ page }) => {
+test('navigation and uwp parser work', async ({ page }) => {
   await page.goto('/');
+  await page.getByTestId('nav-uwp-parser-btn').click();
+
   const input = await page.getByTestId('uwp-input');
   await input.fill('A865AB7-C');
 

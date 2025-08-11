@@ -1,0 +1,23 @@
+.appContainer {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  align-items: start;
+  justify-items: center;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.navBtn {
+  width: 160px;
+  font-size: 24px;
+  text-transform: uppercase;
+}
+
+.content {
+  max-width: 1280px;
+  margin: auto;
+}

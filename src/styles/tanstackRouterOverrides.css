@@ -1,0 +1,9 @@
+a {
+  color: var(--retro-green-vibrant);
+
+  &:hover,
+  &:focus,
+  &.active {
+    color: var(--retro-green-light-phosphor);
+  }
+}

@@ -1,21 +1,24 @@
 .typewriter-text {
-  overflow: hidden; /* Ensures text is not visible until animated */
-  white-space: nowrap; /* Keeps text on a single line */
-  border-right: 0.15em solid transparent; /* The blinking cursor */
-  width: min-content; /* Start with no width, text will be revealed */
+  clip-path: inset(0 100% 0 0);
 
-  /* Animation properties */
-  animation: typing 1s steps(40, end) forwards,
-    /* Typing animation */ blink-caret 0.75s step-end forwards; /* Blinking cursor animation */
+  animation: typing 1s steps(40, end) forwards;
+
+  &::after {
+    content: '|'; /* The cursor character */
+    color: var(--retro-green-light-phosphor); /* Cursor color */
+    animation: blink-caret 1s step-end forwards;
+    display: inline-block; /* Ensures it's positioned next to the text */
+    margin-left: 0.1em; /* Small space between text and cursor */
+  }
 }
 
 /* Keyframes for the typing animation */
 @keyframes typing {
   from {
-    width: 0;
-  }
+    clip-path: inset(0 100% 0 0);
+  } /* Clip 100% from the right */
   to {
-    width: calc-size(fit-content, size);
+    clip-path: inset(0 0% 0 0);
   }
 }
 
@@ -23,9 +26,9 @@
 @keyframes blink-caret {
   from,
   to {
-    border-color: transparent;
+    opacity: 0;
   }
   50% {
-    border-color: green;
+    opacity: 1;
   } /* Change color to your retro green */
 }

@@ -1,4 +1,5 @@
 import { expect, test } from 'vitest';
+
 import { parseUWPString } from './uwp-parser';
 
 test('parses standard UWP string', () => {
